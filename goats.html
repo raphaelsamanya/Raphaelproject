@@ -4,767 +4,241 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goat Farming | Raphael Dairies</title>
-    <link rel="stylesheet" href="dist/css/bootstrap.css">
-    <script src="dist/js/bootstrap.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap (CDN for reliability) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --cream: #FAF3E0;
             --forest: #2C4A2E;
-            --sage: #7A9E7E;
-            --earth: #8B5E3C;
             --gold: #C9A84C;
-            --charcoal: #2A2A2A;
-            --light-sage: #EAF2EA;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--cream);
             font-family: 'Lato', sans-serif;
-            color: var(--charcoal);
-            overflow-x: hidden;
         }
 
-        /* ── SITE TITLE ─────────────────────────── */
-        .site-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 900;
-            letter-spacing: 2px;
+        /* TOP HEADER (MATCH HOMEPAGE) */
+        .top-header {
+            background: #f5f0e6;
+            padding: 10px;
             text-align: center;
-            padding: 1rem 0 0.5rem;
-            color: var(--forest);
-            animation: fadeDown 0.8s ease both;
-        }
-        .site-title span { color: #dc3545; }
-
-        /* ── NAVBAR ─────────────────────────────── */
-        .navbar {
-            border-bottom: 3px solid var(--gold);
-            background: #fff !important;
-            box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-            animation: slideDown 0.6s ease both;
-        }
-        .navbar-brand {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: var(--forest) !important;
-            transition: color 0.2s;
         }
-        .navbar-brand:hover { color: var(--gold) !important; }
 
-        .nav-link {
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-size: 0.82rem;
-            color: var(--charcoal) !important;
-            position: relative;
-            padding: 0.5rem 1rem !important;
-            transition: color 0.2s;
+        .top-header span {
+            color: red;
         }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 50%;
-            width: 0; height: 2px;
-            background: var(--gold);
-            transition: all 0.3s;
-            transform: translateX(-50%);
-        }
-        .nav-link:hover::after,
-        .nav-link.active::after { width: 70%; }
-        .nav-link:hover,
-        .nav-link.active { color: var(--forest) !important; }
 
-        /* ── PAGE HERO BANNER ───────────────────── */
+        /* NAVBAR */
+        .navbar-nav .nav-link {
+            font-weight: 600;
+            margin: 0 15px;
+        }
+
+        .nav-link.active {
+            border-bottom: 2px solid var(--gold);
+        }
+
+        /* HERO */
         .page-hero {
-            background: linear-gradient(135deg, var(--forest) 0%, #1a2e1c 55%, #3a6b3e 100%);
-            padding: 4rem 0 3rem;
+            background: linear-gradient(to right, #1f3d2b, #2f5d3a);
+            color: white;
+            padding: 100px 20px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
-        .page-hero::before {
-            content: '';
-            position: absolute; inset: 0;
-            background-image:
-                radial-gradient(circle at 15% 85%, rgba(201,168,76,0.15) 0%, transparent 50%),
-                radial-gradient(circle at 85% 15%, rgba(122,158,126,0.2) 0%, transparent 50%);
-        }
-        .page-hero-eyebrow {
-            display: inline-block;
-            color: var(--gold);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            border: 1px solid var(--gold);
-            padding: 0.3rem 1.2rem;
-            border-radius: 2px;
-            margin-bottom: 1.2rem;
-            animation: fadeUp 0.7s 0.2s ease both;
-            position: relative; z-index: 1;
-        }
+
         .page-hero h2 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.2rem, 5vw, 3.8rem);
-            font-weight: 900;
-            color: #fff;
-            line-height: 1.15;
-            animation: fadeUp 0.8s 0.35s ease both;
-            position: relative; z-index: 1;
-        }
-        .page-hero h2 em { color: var(--gold); font-style: italic; }
-        .page-hero p {
-            color: rgba(255,255,255,0.7);
-            font-size: 1rem;
-            max-width: 520px;
-            margin: 1rem auto 0;
-            line-height: 1.8;
-            animation: fadeUp 0.9s 0.5s ease both;
-            position: relative; z-index: 1;
+            font-size: 45px;
         }
 
-        /* floating leaf */
-        .leaf {
-            position: absolute;
-            border-radius: 0 80% 0 80%;
-            opacity: 0.06;
-            background: var(--gold);
-            animation: floatLeaf linear infinite;
-        }
-
-        /* ── SECTION HELPERS ────────────────────── */
-        .section-pad { padding: 4.5rem 0; }
-
-        .section-tag {
-            display: inline-block;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+        .page-hero em {
             color: var(--gold);
-            margin-bottom: 0.5rem;
-        }
-        .section-heading {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-            font-weight: 900;
-            color: var(--forest);
-            line-height: 1.2;
-            margin-bottom: 0.8rem;
-        }
-        .divider-leaf {
-            width: 56px; height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--sage));
-            border-radius: 4px;
-            margin: 0.8rem 0 1.5rem;
         }
 
-        /* ── GOAT CARDS ─────────────────────────── */
+        /* CARD */
         .goat-card {
             background: #fff;
             border-radius: 6px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-            opacity: 0;
-            transform: translateY(32px);
-            transition: opacity 0.65s ease, transform 0.65s ease, box-shadow 0.3s ease;
-            height: 100%;
+            transition: 0.3s;
         }
-        .goat-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+
         .goat-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 18px 44px rgba(0,0,0,0.13);
+            transform: translateY(-5px);
         }
 
-        .goat-img-wrap {
-            height: 230px;
-            overflow: hidden;
-            position: relative;
-        }
         .goat-img-wrap img {
-            width: 100%; height: 100%;
+            width: 100%;
+            height: 250px;
             object-fit: cover;
-            transition: transform 0.55s ease;
-        }
-        .goat-card:hover .goat-img-wrap img { transform: scale(1.08); }
-
-        .goat-breed-badge {
-            position: absolute;
-            top: 12px; left: 12px;
-            background: var(--forest);
-            color: #fff;
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 0.25rem 0.7rem;
-            border-radius: 2px;
         }
 
         .goat-card-body {
-            padding: 1.4rem 1.5rem 1.8rem;
-            border-top: 3px solid var(--gold);
+            padding: 15px;
         }
+
         .goat-card-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            font-weight: 700;
+            font-weight: bold;
             color: var(--forest);
-            margin-bottom: 0.6rem;
-        }
-        .goat-card-text {
-            font-size: 0.91rem;
-            line-height: 1.75;
-            color: #555;
-        }
-        .goat-tag {
-            display: inline-block;
-            background: var(--light-sage);
-            color: var(--forest);
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 0.22rem 0.65rem;
-            border-radius: 2px;
-            margin-top: 0.9rem;
-            margin-right: 0.3rem;
         }
 
-        /* ── SECTION BACKGROUNDS ────────────────── */
-        .bg-cream { background: var(--cream); }
-        .bg-white-section { background: #fff; }
-        .bg-sage-light { background: var(--light-sage); }
-
-        /* ── WIDE FEATURE ROW ───────────────────── */
-        .feature-row-img {
-            border-radius: 6px;
-            overflow: hidden;
-            position: relative;
-        }
-        .feature-row-img::before {
-            content: '';
-            position: absolute;
-            top: -14px; right: -14px;
-            bottom: 14px; left: 14px;
-            border: 3px solid var(--gold);
-            border-radius: 6px;
-            z-index: 0;
-        }
-        .feature-row-img img {
-            position: relative; z-index: 1;
-            width: 100%; height: 360px;
-            object-fit: cover;
-            border-radius: 6px;
-            display: block;
-        }
-
-        /* ── QUOTE STRIP ────────────────────────── */
-        .quote-strip {
-            background: linear-gradient(135deg, var(--earth) 0%, #5c3d22 100%);
-            padding: 4rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .quote-strip::before {
-            content: '"';
-            position: absolute;
-            font-family: 'Playfair Display', serif;
-            font-size: 28rem;
-            color: rgba(255,255,255,0.03);
-            top: -5rem; left: -1rem;
-            line-height: 1;
-        }
-        .quote-strip blockquote {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.2rem, 2.5vw, 1.7rem);
-            font-style: italic;
-            color: #fff;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-            position: relative; z-index: 1;
-        }
-        .quote-strip cite {
-            display: block;
-            font-family: 'Lato', sans-serif;
-            font-style: normal;
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-top: 1.2rem;
-        }
-
-        /* ── FOOTER ─────────────────────────────── */
-        .site-footer {
+        footer {
             background: var(--forest);
-            color: rgba(255,255,255,0.75);
-            padding: 4rem 0 0;
-        }
-        .footer-brand {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 900;
-            color: #fff;
-            margin-bottom: 0.8rem;
-        }
-        .footer-brand span { color: var(--gold); }
-        .footer-desc {
-            font-size: 0.9rem;
-            line-height: 1.8;
-            color: rgba(255,255,255,0.6);
-            max-width: 280px;
-        }
-        .footer-heading {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            color: #fff;
-            margin-bottom: 1.2rem;
-            position: relative;
-            padding-bottom: 0.7rem;
-        }
-        .footer-heading::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0;
-            width: 36px; height: 2px;
-            background: var(--gold);
-        }
-        .footer-form input[type="email"],
-        .footer-form textarea {
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.15);
-            color: #fff;
-            border-radius: 3px;
-            padding: 0.7rem 1rem;
-            width: 100%;
-            font-family: 'Lato', sans-serif;
-            font-size: 0.88rem;
-            transition: border-color 0.25s;
-            outline: none;
-        }
-        .footer-form input[type="email"]::placeholder,
-        .footer-form textarea::placeholder { color: rgba(255,255,255,0.35); }
-        .footer-form input[type="email"]:focus,
-        .footer-form textarea:focus { border-color: var(--gold); }
-        .footer-form textarea { resize: vertical; min-height: 110px; margin-top: 0.7rem; }
-        .btn-footer-send {
-            display: inline-block;
-            margin-top: 0.9rem;
-            background: var(--gold);
-            color: var(--forest);
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            padding: 0.7rem 2rem;
-            border: none;
-            border-radius: 2px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .btn-footer-send:hover {
-            background: #fff;
-            color: var(--forest);
-            transform: translateY(-2px);
-        }
-        .footer-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-        .footer-tag {
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.12);
-            color: rgba(255,255,255,0.6);
-            font-size: 0.7rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 0.3rem 0.75rem;
-            border-radius: 2px;
-            transition: all 0.2s;
-        }
-        .footer-tag:hover {
-            background: var(--gold);
-            color: var(--forest);
-            border-color: var(--gold);
-        }
-        .footer-bottom {
-            margin-top: 3rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding: 1.2rem 0;
+            color: white;
             text-align: center;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.35);
-            letter-spacing: 1px;
-        }
-        .footer-bottom span { color: var(--gold); }
-
-        /* ── ANIMATIONS ─────────────────────────── */
-        @keyframes fadeDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(28px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes floatLeaf {
-            0%   { transform: translateY(110vh) rotate(0deg); opacity: 0; }
-            10%  { opacity: 0.06; }
-            90%  { opacity: 0.06; }
-            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 768px) {
-            .feature-row-img::before { display: none; }
+            padding: 20px;
         }
     </style>
 </head>
+
 <body>
 
-    <!-- ── SITE TITLE ──────────────────────────────── -->
-    <h1 class="site-title"><u>Raphael <span>Cattle</span></u></h1>
+<!-- TOP HEADER -->
+<div class="top-header">
+    <h2>Raphael <span>Cattle</span></h2>
+</div>
 
-    <!-- ── NAVBAR ─────────────────────────────────── -->
-    <section class="row">
-        <div class="col-lg-12">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a href="index.html" class="navbar-brand">
-                    <b>Raphael <span class="text-danger">Dairies</span></b>
-                </a>
-                <button class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#navbarcontents">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div id="navbarcontents" class="navbar-collapse collapse">
-                    <div class="navbar-nav">
-                        <a href="index.html" class="nav-link">Home</a>
-                        <a href="sheep.html" class="nav-link">Sheep</a>
-                        <a href="goats.html" class="nav-link active">Goat</a>
-                        <a href="aboutus.html" class="nav-link">About Us</a>
-                    </div>
-                </div>
-            </nav>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg bg-white px-4">
+    <a href="index.html" class="navbar-brand fw-bold">
+        Raphael <span class="text-danger">Dairies</span>
+    </a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center" id="navMenu">
+        <div class="navbar-nav">
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="sheep.html" class="nav-link">SHEEP</a>
+            <a href="goats.html" class="nav-link active">GOAT</a>
+            <a href="aboutus.html" class="nav-link">ABOUT US</a>
         </div>
-    </section>
+    </div>
+</nav>
 
-    <!-- ── PAGE HERO ──────────────────────────────── -->
-    <section class="page-hero">
-        <div class="leaf" style="width:70px;height:70px;left:7%;animation-duration:19s;animation-delay:0s;"></div>
-        <div class="leaf" style="width:45px;height:45px;left:30%;animation-duration:24s;animation-delay:5s;"></div>
-        <div class="leaf" style="width:90px;height:90px;left:65%;animation-duration:16s;animation-delay:9s;"></div>
-        <div class="leaf" style="width:55px;height:55px;left:82%;animation-duration:21s;animation-delay:3s;"></div>
+<!-- HERO -->
+<section class="page-hero">
+    <h5>LIVESTOCK • BREEDS • FARMING</h5>
+    <h2>Goat Farming at <br><em>Raphael Dairies</em></h2>
+    <p>
+        From hardy indigenous breeds to prized dairy goats — explore our diverse herd.
+    </p>
+</section>
 
-        <span class="page-hero-eyebrow">Livestock · Breeds · Farming</span>
-        <h2>Goat Farming at<br><em>Raphael Dairies</em></h2>
-        <p>From hardy indigenous breeds to prized dairy goats — explore the diverse herd that makes our farm thrive.</p>
-    </section>
+<!-- BOER GOATS -->
+<div class="container my-5">
+    <h3 class="text-center text-success mb-4">Boer Goats</h3>
 
-    <!-- ── SECTION 1 · BOER GOATS ─────────────────── -->
-    <section class="section-pad bg-white-section">
-        <div class="container">
-            <div class="text-center mb-5 reveal">
-                <span class="section-tag">Meat Breed</span>
-                <h2 class="section-heading">Boer Goats</h2>
-                <div class="divider-leaf mx-auto"></div>
-                <p style="max-width:540px;margin:0 auto;color:#555;line-height:1.8;">
-                    Renowned for explosive growth and superior meat quality, the Boer goat is the backbone of our meat production programme.
-                </p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="goat-card">
-                        <div class="goat-img-wrap">
-                            <img src="images/boer1.jfif" alt="Boer Goat">
-                            <span class="goat-breed-badge">Boer</span>
-                        </div>
-                        <div class="goat-card-body">
-                            <div class="goat-card-title">Boer Goat — Prime Stock</div>
-                            <p class="goat-card-text">Boer goats are known for their fast growth and high meat production, making them the ideal choice for commercial and small-scale farmers alike.</p>
-                            <span class="goat-tag">Meat Breed</span>
-                            <span class="goat-tag">Fast Growth</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="goat-card" style="transition-delay:0.15s">
-                        <div class="goat-img-wrap">
-                            <img src="images/boer2.jfif" alt="Boer Goat 2">
-                            <span class="goat-breed-badge">Boer</span>
-                        </div>
-                        <div class="goat-card-body">
-                            <div class="goat-card-title">Climate Adaptability</div>
-                            <p class="goat-card-text">They adapt well to different climates and require moderate feeding management, thriving in both highland and lowland conditions.</p>
-                            <span class="goat-tag">Hardy</span>
-                            <span class="goat-tag">Low Maintenance</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="goat-card" style="transition-delay:0.3s">
-                        <div class="goat-img-wrap">
-                            <img src="images/boer3.jfif" alt="Boer Goat 3">
-                            <span class="goat-breed-badge">Boer</span>
-                        </div>
-                        <div class="goat-card-body">
-                            <div class="goat-card-title">Superior Body Structure</div>
-                            <p class="goat-card-text">Boer goats are popular for their strong muscular frame and exceptional meat quality — consistently yielding high-value cuts.</p>
-                            <span class="goat-tag">High Yield</span>
-                            <span class="goat-tag">Quality Cuts</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="row g-4">
 
-    <!-- ── SECTION 2 · DAIRY GOATS ────────────────── -->
-    <section class="section-pad bg-sage-light">
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-5 reveal">
-                    <div class="feature-row-img">
-                        <img src="images/dairygoat1.jfif" alt="Dairy Goat">
-                    </div>
+        <div class="col-md-4">
+            <div class="goat-card shadow">
+                <div class="goat-img-wrap">
+                    <img src="images/boer1.jfif">
                 </div>
-                <div class="col-lg-7 reveal" style="transition-delay:0.2s">
-                    <span class="section-tag">Dairy Breed</span>
-                    <h2 class="section-heading">Dairy Goats</h2>
-                    <div class="divider-leaf"></div>
-                    <p style="line-height:1.9;color:#555;margin-bottom:1.5rem;">
-                        Our dairy goat herd produces high-quality milk used for artisan cheese, yoghurt, and other dairy products. Naturally homogenised and easier to digest than cow's milk, goat milk is increasingly valued by health-conscious consumers.
-                    </p>
-                    <div class="row g-3">
-                        <div class="col-sm-6">
-                            <div style="background:#fff;border-radius:5px;padding:1.1rem 1.3rem;border-left:3px solid var(--gold);">
-                                <div style="font-family:'Playfair Display',serif;font-weight:700;color:var(--forest);margin-bottom:0.3rem;">Rich Milk Production</div>
-                                <p style="font-size:0.85rem;color:#666;line-height:1.7;margin:0;">They require good feeding and clean environments for peak milk yield throughout the season.</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div style="background:#fff;border-radius:5px;padding:1.1rem 1.3rem;border-left:3px solid var(--sage);">
-                                <div style="font-family:'Playfair Display',serif;font-weight:700;color:var(--forest);margin-bottom:0.3rem;">Artisan Dairy Products</div>
-                                <p style="font-size:0.85rem;color:#666;line-height:1.7;margin:0;">Ideal for soft cheeses, kefir, and yoghurt — all crafted fresh on the farm.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="margin-top:1.5rem;">
-                        <span class="goat-tag">Goat Milk</span>
-                        <span class="goat-tag">Soft Cheese</span>
-                        <span class="goat-tag">Kefir</span>
-                        <span class="goat-tag">Yoghurt</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── SECTION 3 · INDIGENOUS GOATS ───────────── -->
-    <section class="section-pad bg-white-section">
-        <div class="container">
-            <div class="text-center mb-5 reveal">
-                <span class="section-tag">Native Breed</span>
-                <h2 class="section-heading">Indigenous Goats</h2>
-                <div class="divider-leaf mx-auto"></div>
-                <p style="max-width:540px;margin:0 auto;color:#555;line-height:1.8;">
-                    Resilient, disease-resistant, and perfectly adapted to local conditions — our indigenous herd is a testament to nature's own engineering.
-                </p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="goat-card">
-                        <div class="goat-img-wrap">
-                            <img src="images/indigenous1.jpg" alt="Indigenous Goat">
-                            <span class="goat-breed-badge">Indigenous</span>
-                        </div>
-                        <div class="goat-card-body">
-                            <div class="goat-card-title">Hardy &amp; Disease-Resistant</div>
-                            <p class="goat-card-text">Indigenous goats are remarkably resilient and naturally resistant to common diseases, making them a reliable and low-risk choice for local farming.</p>
-                            <span class="goat-tag">Disease Resistant</span>
-                            <span class="goat-tag">Hardy</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="goat-card" style="transition-delay:0.15s">
-                        <div class="goat-img-wrap">
-                            <img src="images/indigenous2.jfif" alt="Indigenous Goat 2">
-                            <span class="goat-breed-badge">Indigenous</span>
-                        </div>
-                        <div class="goat-card-body">
-                            <div class="goat-card-title">Thrives in Harsh Conditions</div>
-                            <p class="goat-card-text">They survive and even thrive in harsh conditions with minimal supplementary care and feeding, ideal for resource-limited environments.</p>
-                            <span class="goat-tag">Low Input</span>
-                            <span class="goat-tag">Self-Sufficient</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="goat-card" style="transition-delay:0.3s">
-                        <div class="goat-img-wrap">
-                            <img src="images/indigenous3.jfif" alt="Indigenous Goat 3">
-                            <span class="goat-breed-badge">Indigenous</span>
-                        </div>
-                        <div class="goat-card-body">
-                            <div class="goat-card-title">Rural &amp; Community Farming</div>
-                            <p class="goat-card-text">Common across rural Kenya, these goats are prized for their adaptability and hold deep cultural significance in local communities.</p>
-                            <span class="goat-tag">Community</span>
-                            <span class="goat-tag">Adaptable</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── SECTION 4 · FEEDING ────────────────────── -->
-    <section class="section-pad bg-sage-light">
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-7 reveal">
-                    <span class="section-tag">Nutrition &amp; Care</span>
-                    <h2 class="section-heading">Feeding &amp; Nutrition</h2>
-                    <div class="divider-leaf"></div>
-                    <p style="line-height:1.9;color:#555;margin-bottom:1.8rem;">
-                        Proper nutrition is the cornerstone of every healthy, productive goat. At Raphael Dairies, we design feeding programmes tailored to each breed — ensuring optimal growth, reproductive health, and milk quality across the entire herd.
-                    </p>
-
-                    <div style="display:flex;flex-direction:column;gap:1.2rem;">
-                        <div style="display:flex;align-items:flex-start;gap:1rem;">
-                            <div style="flex-shrink:0;width:48px;height:48px;background:var(--forest);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🌿</div>
-                            <div>
-                                <div style="font-family:'Playfair Display',serif;font-weight:700;color:var(--forest);margin-bottom:0.2rem;">Pasture &amp; Browse</div>
-                                <p style="font-size:0.88rem;color:#666;line-height:1.7;margin:0;">Natural grazing on lush highland pastures provides the base of our goats' diet — rich in minerals and fibre.</p>
-                            </div>
-                        </div>
-                        <div style="display:flex;align-items:flex-start;gap:1rem;">
-                            <div style="flex-shrink:0;width:48px;height:48px;background:var(--forest);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🌾</div>
-                            <div>
-                                <div style="font-family:'Playfair Display',serif;font-weight:700;color:var(--forest);margin-bottom:0.2rem;">Supplementary Feed</div>
-                                <p style="font-size:0.88rem;color:#666;line-height:1.7;margin:0;">Balanced concentrate feeds and mineral blocks are provided seasonally to support growth and milk production.</p>
-                            </div>
-                        </div>
-                        <div style="display:flex;align-items:flex-start;gap:1rem;">
-                            <div style="flex-shrink:0;width:48px;height:48px;background:var(--forest);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;">💧</div>
-                            <div>
-                                <div style="font-family:'Playfair Display',serif;font-weight:700;color:var(--forest);margin-bottom:0.2rem;">Clean Water Access</div>
-                                <p style="font-size:0.88rem;color:#666;line-height:1.7;margin:0;">Fresh, clean water is available at all times — the single most important factor in goat health and milk yield.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 reveal" style="transition-delay:0.2s">
-                    <div class="feature-row-img">
-                        <img src="images/feeding.jfif" alt="Feeding Goats">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── QUOTE STRIP ─────────────────────────────── -->
-    <section class="quote-strip">
-        <div class="container">
-            <blockquote>
-                "A well-fed goat is a productive goat. We treat every animal with the respect it deserves — because our quality starts in the paddock, not the processing shed."
-                <cite>— Raphael Dairies Farm Management</cite>
-            </blockquote>
-        </div>
-    </section>
-
-    <!-- ── FOOTER ─────────────────────────────────── -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row g-5">
-
-                <!-- Brand col -->
-                <div class="col-lg-4 reveal">
-                    <div class="footer-brand">Raphael <span>Dairies</span></div>
-                    <p class="footer-desc">We provide quality dairy cattle, expert animal care, and sustainable farming practices — delivering fresh milk and livestock products to communities across the region.</p>
-                    <div style="margin-top:1.5rem;display:flex;gap:0.8rem;">
-                        <a href="index.html" style="color:rgba(255,255,255,0.5);font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Home</a>
-                        <span style="color:rgba(255,255,255,0.2);">·</span>
-                        <a href="sheep.html" style="color:rgba(255,255,255,0.5);font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Sheep</a>
-                        <span style="color:rgba(255,255,255,0.2);">·</span>
-                        <a href="goats.html" style="color:#C9A84C;font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;">Goats</a>
-                        <span style="color:rgba(255,255,255,0.2);">·</span>
-                        <a href="aboutus.html" style="color:rgba(255,255,255,0.5);font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">About</a>
-                    </div>
-                </div>
-
-                <!-- Contact form col -->
-                <div class="col-lg-4 reveal" style="transition-delay:0.15s">
-                    <h4 class="footer-heading">Connect with Us</h4>
-                    <div class="footer-form">
-                        <input type="email" placeholder="Enter your email address">
-                        <textarea placeholder="Leave a comment or enquiry..."></textarea>
-                        <button class="btn-footer-send">Send Message</button>
-                    </div>
-                </div>
-
-                <!-- Tags / Stay connected col -->
-                <div class="col-lg-4 reveal" style="transition-delay:0.3s">
-                    <h4 class="footer-heading">Stay Connected</h4>
-                    <p style="font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.8;margin-bottom:1.2rem;">
-                        Follow our journey on the farm — from sunrise milking to seasonal shearing and everything in between.
-                    </p>
-                    <div class="footer-tags">
-                        <span class="footer-tag">Goats</span>
-                        <span class="footer-tag">Farming</span>
-                        <span class="footer-tag">Livestock</span>
-                        <span class="footer-tag">Dairy</span>
-                        <span class="footer-tag">Meat</span>
-                        <span class="footer-tag">Agriculture</span>
-                        <span class="footer-tag">Animals</span>
-                        <span class="footer-tag">Kenya</span>
-                    </div>
+                <div class="goat-card-body">
+                    <div class="goat-card-title">Fast Growth</div>
+                    <p>Boer goats grow quickly and produce high-quality meat.</p>
                 </div>
             </div>
         </div>
 
-        <div class="footer-bottom">
-            <span>Developed by Raphael Samanya</span> &nbsp;·&nbsp; &copy; 2026 All Rights Reserved
+        <div class="col-md-4">
+            <div class="goat-card shadow">
+                <div class="goat-img-wrap">
+                    <img src="images/boer2.jfif">
+                </div>
+                <div class="goat-card-body">
+                    <div class="goat-card-title">Adaptable</div>
+                    <p>They survive in different climates and conditions.</p>
+                </div>
+            </div>
         </div>
-    </footer>
 
-    <!-- ── SCROLL REVEAL SCRIPT ─────────────────── -->
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.13 });
+        <div class="col-md-4">
+            <div class="goat-card shadow">
+                <div class="goat-img-wrap">
+                    <img src="images/boer3.jfif">
+                </div>
+                <div class="goat-card-body">
+                    <div class="goat-card-title">Strong Build</div>
+                    <p>Known for muscular structure and high meat yield.</p>
+                </div>
+            </div>
+        </div>
 
-        document.querySelectorAll('.reveal, .goat-card').forEach(el => observer.observe(el));
-    </script>
+    </div>
+</div>
+
+<!-- DAIRY GOATS -->
+<div class="container my-5">
+    <h3 class="text-center text-success mb-4">Dairy Goats</h3>
+
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <img src="images/dairygoat1.jfif" class="img-fluid rounded">
+        </div>
+        <div class="col-md-6">
+            <p>
+                Dairy goats produce high-quality milk used for yoghurt, cheese, and other dairy products.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- INDIGENOUS GOATS -->
+<div class="container my-5">
+    <h3 class="text-center text-success mb-4">Indigenous Goats</h3>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="goat-card shadow">
+                <img src="images/indigenous1.jpg" class="w-100">
+                <div class="goat-card-body">
+                    <div class="goat-card-title">Disease Resistant</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="goat-card shadow">
+                <img src="images/indigenous2.jfif" class="w-100">
+                <div class="goat-card-body">
+                    <div class="goat-card-title">Low Maintenance</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="goat-card shadow">
+                <img src="images/indigenous3.jfif" class="w-100">
+                <div class="goat-card-body">
+                    <div class="goat-card-title">Adaptable</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    Developed by Raphael Samanya © 2026
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

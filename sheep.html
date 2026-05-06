@@ -3,197 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to the sheep Page</title>
-    <link rel="stylesheet" href="dist/css/bootstrap.css">
-    <script src="dist/js/bootstrap.js"></script>
+    <title>Sheep Farming | Raphael Dairies</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #faf3e0;
+        }
+
+        /* HEADER */
+        .top-header {
+            background: #f5f0e6;
+            padding: 10px;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .top-header span {
+            color: red;
+        }
+
+        /* NAVBAR */
+        .navbar-nav .nav-link {
+            margin: 0 15px;
+            font-weight: 500;
+        }
+
+        .nav-link.active {
+            border-bottom: 2px solid goldenrod;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(to right, #1f3d2b, #2f5d3a);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero span {
+            color: goldenrod;
+            font-style: italic;
+        }
+
+        /* CARDS */
+        .card img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
 </head>
+
 <body>
-        <h1 class="text-center text-danger "><u>Raphael Cattle</u></h1>
 
-      <!-- section one starts here -->
-         <section class="row">
-            <div class="col-lg-12">
-                <!-- below tag element will hold all the contents of the navbar -->
-                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a href="index.html" class="navbar-brand"><b>Raphael <span class="text-danger">Dairies</span></b></a>
+<!-- HEADER -->
+<div class="top-header">
+    <h2>Raphael <span>Cattle</span></h2>
+</div>
 
-                    <!-- below is the toggler/hamburger button to either collapse/expand contents depending on the different screen sizes. -->
-                     <button class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#navbarcontents">
-                        <span class="navbar-toggler-icon"></span>
-                     </button>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg bg-white px-4">
+    <a href="index.html" class="navbar-brand fw-bold">
+        Raphael <span class="text-danger">Dairies</span>
+    </a>
 
-                     <div id="navbarcontents" class="navbar-collapse collapse">
-                        <div class="navbar-nav">
-                            <a href="index.html" class="nav-link">Home</a>
-                            <a href="sheep.html" class="nav-link active">Sheep</a>
-                             <a href="goats.html" class="nav-link ">Goat</a>
-                               <a href="aboutus.html" class="nav-link ">About Us</a>
-                            <!-- <a href="#" class="nav-link">Fashion</a> -->
-                        </div>
-                     </div>
-                 </nav>
-            </div>
-         </section> <br>
-        <!-- section one ends here -->
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <marquee behavior="" direction="">
-            
-        <h5 class="text-center">Here at Raphael Dairies, we specialize in have different types of Sheep. Enlisted are some of them.</h5>
-        </marquee>
+    <div class="collapse navbar-collapse justify-content-center" id="navMenu">
+        <div class="navbar-nav">
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="sheep.html" class="nav-link active">SHEEP</a>
+            <a href="goats.html" class="nav-link">GOAT</a>
+            <a href="aboutus.html" class="nav-link">ABOUT US</a>
+        </div>
+    </div>
+</nav>
 
-        <h2 class="text-center text-danger">Dorper Sheep</h2>
-           <center>
+<!-- HERO -->
+<section class="hero">
+    <h5>LIVESTOCK • BREEDS • FARMING</h5>
+    <h1>Sheep Farming at <br><span>Raphael Dairies</span></h1>
+    <p>Explore our sheep breeds known for quality meat, wool, and adaptability.</p>
+</section>
 
+<!-- INTRO -->
+<div class="container my-5 text-center">
+    <p class="text-primary">
+        At Raphael Dairies, we specialize in different types of sheep suited for both meat and wool production.
+    </p>
+</div>
 
-        <section class="row">
-            <div class="col-md-4">
-                <div class="card shadow">
-                    <div class="card-header">
-                        <h6 class="text-primary">Dorper 1</h6>
-                    </div>
-                    <div class="card-body">
-                        
-                        <img src="images/dorper1.jfif" alt="" height="300px" width="100%">
-                        <p class="text-primary">
-                            Dorper sheep are widely farmed in Kenya due to their ability to adapt to arid and semi-arid regions, providing farmers with reliable meat production.
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-danger">Purchase Now</button>
-                    </div>
+<!-- DORPER -->
+<div class="container my-5">
+    <h3 class="text-center text-danger mb-4">Dorper Sheep</h3>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card shadow">
+                <img src="images/dorper1.jfif" class="w-100">
+                <div class="card-body">
+                    <p class="text-primary">
+                        Dorper sheep adapt well to dry regions and provide reliable meat production.
+                    </p>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-danger">Purchase Now</button>
                 </div>
             </div>
+        </div>
 
-
-             <div class="col-md-4">
-                <div class="card shadow">
-                    <div class="card-header">
-                        <h6 class="text-primary">Dorper 2</h6>
-                    </div>
-                    <div class="card-body">
-                        
-                        <img src="images/dorper3.jfif" alt="" height="300px" width="100%">
-
-                        <p class="text-primary">
-                            Dorper sheep thrive in hot climates because they shed wool naturally, resist diseases, and adapt well to different grazing conditions and environments very strong animals.
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-danger">Purchase Now</button>
-                    </div>
+        <div class="col-md-4">
+            <div class="card shadow">
+                <img src="images/dorper3.jfif" class="w-100">
+                <div class="card-body">
+                    <p class="text-primary">
+                        They resist diseases and thrive in different climates with minimal care.
+                    </p>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-danger">Purchase Now</button>
                 </div>
             </div>
+        </div>
 
-             <div class="col-md-4">
-                <div class="card shadow">
-                    <div class="card-header">
-                        <h6 class="text-primary">Doper 3</h6>
-                    </div>
-                    <div class="card-body">
-                        
-                        <img src="images/dorper2.jfif" alt="" height="300px" width="100%">
-                        <p class="text-primary">Dorper sheep require low maintenance and produce high quality meat, making them popular among farmers who prefer resilient livestock with minimal feeding requirements overall productivity.</p>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-danger">Purchase Now</button>
-                    </div>
+        <div class="col-md-4">
+            <div class="card shadow">
+                <img src="images/dorper2.jfif" class="w-100">
+                <div class="card-body">
+                    <p class="text-primary">
+                        Known for high-quality meat and low maintenance farming.
+                    </p>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-danger">Purchase Now</button>
                 </div>
             </div>
-        </section>
-    </center>
+        </div>
 
+    </div>
+</div>
 
-           <h2 class="text-center text-danger">Merino Sheep</h2>
+<!-- MERINO -->
+<div class="container my-5">
+    <h3 class="text-center text-danger mb-4">Merino Sheep</h3>
 
-            <center>
+    <div class="row g-4">
 
-
-        <section class="row">
-           
-
-
-             <div class="col-md-6">
-                <div class="card shadow">
-                    <div class="card-header">
-                        <h6 class="text-primary">Merino 1</h6>
-                    </div>
-                    <div class="card-body">
-                        
-                        <img src="images/merino1.jfif" alt="" height="300px" width="100%">
-
-                        <p class="text-primary">
-                            Dorper sheep thrive in hot climates because they shed wool naturally, resist diseases, and adapt well to different grazing conditions and environments very strong animals.
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-danger">Purchase Now</button>
-                    </div>
+        <div class="col-md-6">
+            <div class="card shadow">
+                <img src="images/merino1.jfif" class="w-100">
+                <div class="card-body">
+                    <p class="text-primary">
+                        Merino sheep are known for producing high-quality wool used in textiles.
+                    </p>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-danger">Purchase Now</button>
                 </div>
             </div>
+        </div>
 
-             <div class="col-md-6">
-                <div class="card shadow">
-                    <div class="card-header">
-                        <h6 class="text-primary">Merino 2</h6>
-                    </div>
-                    <div class="card-body">
-                        
-                        <img src="images/merino2.jfif" alt="" height="300px" width="100%">
-                        <p class="text-primary">Dorper sheep require low maintenance and produce high quality meat, making them popular among farmers who prefer resilient livestock with minimal feeding requirements overall productivity.</p>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-danger">Purchase Now</button>
-                    </div>
+        <div class="col-md-6">
+            <div class="card shadow">
+                <img src="images/merino2.jfif" class="w-100">
+                <div class="card-body">
+                    <p class="text-primary">
+                        They are valuable for both wool production and adaptability.
+                    </p>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-danger">Purchase Now</button>
                 </div>
             </div>
-        </section>
-    </center>
+        </div>
 
+    </div>
+</div>
 
-     <!-- Section nine starts here -->
-         <section class="row bg-success">
-            <div class="col-lg-4 p-4 text-white">
-                <h4 class="text-center">About Us</h4>
-                <p>We provide quality dairy cattle, expert care, sustainable farming practices, fresh milk production, and reliable agricultural solutions for communities.</p>
+<!-- FOOTER SECTION -->
+<section class="row bg-success text-white p-4">
 
-                <p>Our dairy farm focuses on healthy cattle breeding, quality milk production, sustainable farming methods, farmer support, modern technology, and animal care to provide fresh dairy products and improve agriculture.</p>
-            </div>
+    <div class="col-lg-4">
+        <h4>About Us</h4>
+        <p>We provide quality livestock, sustainable farming, and agricultural solutions.</p>
+    </div>
 
-            <div class="col-lg-4 p-4">
-                <h4 class="text-center text-white">Connect with Us</h4>
+    <div class="col-lg-4">
+        <h4>Connect with Us</h4>
+        <form>
+            <input type="email" class="form-control mb-2" placeholder="Enter Email">
+            <textarea class="form-control mb-2" rows="3" placeholder="Message"></textarea>
+            <button class="btn btn-outline-light">Send</button>
+        </form>
+    </div>
 
-                <form>
-                    <input type="email" placeholder="Enter Email Address" class="form-control">
-                    <br>
-                    <textarea cols="50" rows="5" class="form-control" placeholder="Leave a Comment"></textarea>
-                    <br>
+    <div class="col-lg-4 text-center">
+        <h4>Follow Us</h4>
+        <img src="images/fb.png" width="30">
+        <img src="images/in.png" width="30">
+        <img src="images/x.png" width="30">
+    </div>
 
-                    <input type="submit" value="Send Message" class="btn btn-outline-danger">
-                </form>
-            </div>
+</section>
 
-            <div class="col-lg-4 p-4 text-center">
-                <h4 class="text-white text-center">Stay Connected</h4>
+<footer>
+    Developed by Raphael Samanya © 2026
+</footer>
 
-                <a href="https://www.facebook.com">
-                    <img src="images/fb.png" alt="">
-                </a>
-                <a href="https://www.instagram.com">
-                    <img src="images/in.png" alt="">
-                </a>
-                <a href="https://www.twitter.com">
-                    <img src="images/x.png" alt="">
-                </a>
-
-                <p class="pt-3">milk, cattle, dairy, farm, fresh, quality, breed, cows, healthy, care, feeding, grazing, pasture, nutrition, hygiene, production, supply, farmers, livestock, management, sustainable, agriculture, organic, veterinary, services, training, technology, innovation, reliable, trusted, natural, environment, growth, productivity, safety, community, development, excellence, support, improvement</p>
-            </div>
-         </section>
-         <footer class="text-center text-white bg-dark p-2">
-            <b>Developed by Raphael Samanya. &copy; 2026 All Rights Reserved</b>
-         </footer>
-        <!-- section nine ends here -->
-
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
